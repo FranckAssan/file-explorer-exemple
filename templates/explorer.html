@@ -1,0 +1,44 @@
+{% extends "main_layout.html" %}
+
+{% block title %}Explorer - Network Hub{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Hub</a></li>
+                    <li class="breadcrumb-item active">{{ current_path }}</li>
+                </ol>
+            </nav>
+            {% if parent_dir %}
+                <a href="/explore?path={{ parent_dir }}" class="btn btn-sm btn-secondary">
+                    <i class="bi-arrow-return-left"></i>
+                </a>
+            {% endif %}
+        </div>
+
+        <div class="list-group shadow-sm">
+            {% for item in items %}
+                {% if item.is_dir %}
+                <a href="/explore?path={{ item.path }}" class="list-group-item list-group-item-action
+                    border-start-0 border-end-0">
+                    <i class="bi bi-folder-fill text-warning me-2"></i> {{ item.name }}
+                </a>
+                {% else %}
+                <div class="list-group-item border-start-0 border-end-0 text-muted d-flex align-items-center">
+                    <i class="bi bi-image-fill me-2"></i>
+                    <b class="me-auto">{{ item.name }}</b>
+                    <!-- To choose where to save it and change the name it needs to be activated in the browser
+                        or just right click on the save button plus save the link target at
+                        or add an input field to add the new name that will be sent to the backend
+                     -->
+                    <a href="/download?path={{ item.path }}" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-save2-fill"></i> Download
+                    </a>
+
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

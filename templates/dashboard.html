@@ -1,0 +1,18 @@
+{% extends "main_layout.html" %}
+{% block content %}
+<h2 class="mb-4 text-center">Connected Computers</h2>
+<div class="row g-4">
+    {% for computer in computers %}
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-pc-display display-4 text-primary"></i>
+                <h5 class="mt-3">{{ computer.name }}</h5>
+                <a href="/explore?path={{ computer.path }}"
+                   class="btn btn-primary stretched-link mt-3">Browse</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
