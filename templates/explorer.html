@@ -1,12 +1,12 @@
 {% extends "main_layout.html" %}
 
-{% block title %}Explorer - Network Hub{% endblock %}
+{% block title %}Explorer{% endblock %}
 {% block content %}
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Hub</a></li>
+                    <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Dashboard</a></li>
                     <li class="breadcrumb-item active">{{ current_path }}</li>
                 </ol>
             </nav>
@@ -29,7 +29,7 @@
                     <i class="bi bi-image-fill me-2"></i>
                     <b class="me-auto">{{ item.name }}</b>
                     <!-- To choose where to save it and change the name it needs to be activated in the browser
-                        or just right click on the save button plus save the link target at
+                        or just right-click on the save button plus save the link target at
                         or add an input field to add the new name that will be sent to the backend
                      -->
                     <a href="/download?path={{ item.path }}" class="btn btn-sm btn-outline-primary">
