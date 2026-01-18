@@ -1,0 +1,7 @@
+folders:
+  - name: "Keyence1"
+    path: ["/home", "franck", "Keyence1"]
+
+backupFolder:
+    name: 'backup'
+    path: ["/home", "franck", "backup"]
